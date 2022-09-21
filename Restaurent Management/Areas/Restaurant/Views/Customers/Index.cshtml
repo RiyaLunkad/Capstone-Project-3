@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Hotel.Web.Models.Customer>
+
+@{
+    ViewData["Title"] = "Customer";
+}
+
+
+
+
+<h1>Customer</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+ <table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <a class="bg-primary text-white" asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
+                <a class="bg-warning text-white" asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
+                <a class="bg-danger text-white" asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
